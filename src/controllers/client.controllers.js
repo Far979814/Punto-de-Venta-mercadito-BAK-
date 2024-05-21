@@ -1,10 +1,23 @@
-import { pool } from "../config/db.js";
+
 
 export const getClients = async(req, res) =>{ //Obtener los clientes de la base.
-    try{
-        const [result] = await pool.query("SELECT * FROM clients")
-        res.json(result);
-    }catch (error){
-        return res.status(500).json({message: error.message});
-    }
+    res.send('GetClients')
+}
+
+export const getClient = async(req, res) =>{ //Obtener los clientes de la base.
+    res.send('GetCLIENT')
+
+}
+
+export const createClients = async(req, res) => {
+    res.send('CREATE CLIENT')
+}
+
+export const updateClient = async(req, res) => {
+    res.send('Update Client')
+}
+
+export const deleteClient = async (req, res) =>{
+    res.send('Delete Client')
+   
 }

@@ -1,15 +1,24 @@
 import express from 'express'; 
 import dotenv from 'dotenv';
-import dbRoutes from './routes/dbTest.routes.js'
-import clientRoutes from './routes/clients.routes.js';
+// import clientRoutes from './routes/clients.routes.js';
+import suppliersRoutes from './routes/suppliers.routes.js';
+import productsRoutes from './routes/products.routes.js';
+// import deparmentRoutes from './routes/departments.routes.js';
+import userRoute from './routes/users.routes.js'
+import { dbConnection } from './config/db.js';
 
 const app = express();
 
 app.use(express.json());
-app.use(dbRoutes);
-app.use(clientRoutes);
+app.use(userRoute);
+// app.use(clientRoutes);
+app.use(suppliersRoutes);
+app.use(productsRoutes);
+// app.use(deparmentRoutes);
 dotenv.config();
 const PORT = process.env.PORT
+
+dbConnection();
 
 app.listen(`${PORT}`);
 
