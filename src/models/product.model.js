@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 
-import { supplierModel } from './supplier.js'
+import { supplierModel } from './supplier.model.js'
 
 import db from "../config/db.js";
 
@@ -17,10 +17,6 @@ export const productModel = db.define('product', {
             model: supplierModel,
             key: 'rtn'
                      }
-    },
-    admission_date: {
-        type: DataTypes.DATE,
-        allowNull:false,
     },
     date_of_sale: {
         type: DataTypes.DATE,
