@@ -8,6 +8,7 @@ import authRoutes from './routes/auth.routes.js'
 import deparmentRoutes from './routes/departments.routes.js';
 import userRoute from './routes/users.routes.js'
 import employeesRoutes from './routes/employees.routes.js';
+import invoicesRoutes from './routes/invoices.routes.js';
 import { dbConnection } from './config/db.js';
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(productsRoutes);
 app.use(deparmentRoutes);
 app.use('/api',authRoutes);
 app.use(employeesRoutes);
+app.use(invoicesRoutes);
 // app.use(deparmentRoutes);
 dotenv.config();
 const PORT = process.env.PORT
