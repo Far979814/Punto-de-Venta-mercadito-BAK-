@@ -1,4 +1,4 @@
-import { productModel } from "../models/product.model.js"
+import { productModel } from "../config/models/product.model.js"
 
 export const getProducts = async( res ) =>{
     try {
@@ -22,7 +22,7 @@ export const addProduct = async( req, res) => {
         product_name,
         brand 
       })
-      res.status(201).json({productoCreado: newProduct});
+      res.status(200).json({productoCreado: newProduct});
     } catch (error) {
         const { sqlMessage } = error.parent
         res.status(500).json({error: sqlMessage});

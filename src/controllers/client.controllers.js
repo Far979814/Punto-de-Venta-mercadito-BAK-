@@ -1,4 +1,4 @@
-import { clientModel } from '../models/client.model.js'
+import { clientModel } from '../config/models/client.model.js'
 
 export const getClients = async(req, res) =>{ //Obtener los clientes de la base.
     try{

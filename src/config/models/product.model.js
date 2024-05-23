@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 
 import { supplierModel } from './supplier.model.js'
 
-import db from "../config/db.js";
+import db from "../db.js";
 
 export const productModel = db.define('product', {
     code: {

@@ -1,4 +1,4 @@
-import { userModel } from '../models/user.model.js'
+import { userModel } from '../config/models/user.model.js'
 import bcrypt from 'bcryptjs';
 import { AccessToken } from '../lib/jwt.js';
 
@@ -17,7 +17,7 @@ export const register = async(req, res) =>{
         });
 
     res.cookie('token', token)
-    res.json({
+    res.status(200).json({
         message: "User created successfully"
     })
 
@@ -47,7 +47,7 @@ export const login = async(req, res) =>{
 
     
     res.cookie('token', token)
-    res.json({
+    res.status(200).json({
         message: `"Welcome BACK! ${userFound.username}"`,
         id: userFound.id,
     username: userFound.username,

@@ -4,7 +4,7 @@ import { clientModel } from "./client.model.js";
 import {employeeModel} from './employee.model.js';
 import {productModel} from './product.model.js';
 
-import db from "../config/db.js";
+import db from "../db.js";
 
 export const invoiceModel = db.define('invoice', {
     client_id: {

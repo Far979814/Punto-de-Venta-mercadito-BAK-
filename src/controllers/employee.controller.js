@@ -1,4 +1,4 @@
-import { employeeModel } from '../models/employee.model.js'
+import { employeeModel } from '../config/models/employee.model.js'
 
 export const getEmployees = async(req, res) =>{
     try {
@@ -14,7 +14,7 @@ export const addEmployee = async(req, res) => {
     try {
       const employee = new employeeModel(req.body);
       await employee.save();
-      res.status(400).json({message:'Employeer saved Successfully', 
+      res.status(200).json({message:'Employeer saved Successfully', 
            id: employee.id,
            name: `${employee.first_name} ${employee.last_name}`,
            department: `${employee.department}`

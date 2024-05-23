@@ -1,4 +1,4 @@
-import { invoiceModel } from "../models/invoice.model.js";
+import { invoiceModel } from "../config/models/invoice.model.js";
 
 export const getInvoices = async(req, res) =>{
     try {
