@@ -1,11 +1,11 @@
-// import {Router} from 'express';
+import { Router } from 'express';
 
-// import {
-//     getDepartments,
-// } from '../controllers/department.controller.js'
+import {
+    getDepartments,
+} from '../controllers/department.controller.js'
 
-// const router = Router();
+const router = Router();
 
-// router.get('/api/departments', getDepartments);
+router.get('/api/departments', getDepartments);
 
-// export default router;
+export default router;

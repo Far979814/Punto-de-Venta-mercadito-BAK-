@@ -73,6 +73,21 @@ export const updateClient = async(req, res) => {
 }
 
 export const deleteClient = async (req, res) =>{
-    res.send('Delete Client')
-   
+    try {
+        const deleteResult = await clientModel.destroy( {
+            where: {
+                id: req.params.id
+            }
+        });
+        deleteResult === 1 ? res.send(`Client with id ${req.params.id} deleted.`) : res.send(`Client with id ${req.params.id} not found`);
+    } catch (error) {
+        let sqlMessage = 'Unknown error';
+        if (error.parent) {
+            sqlMessage = error.parent.sqlMessage;
+        }
+        res.status(500).json({
+            Error: 'An error ocurred',
+            SqlMessage: sqlMessage
+        });
+    }
 }
