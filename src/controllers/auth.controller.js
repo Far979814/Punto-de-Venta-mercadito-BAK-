@@ -28,31 +28,31 @@ export const register = async(req, res) =>{
     }
 }
 export const login = async(req, res) =>{
-    const { password, email } = req.body
-
+    const { password, username } = req.body
 
     try {
-        console.log(email, password);
-        const userFound = await userModel.findOne({ where:{email: email} });
+        console.log(username, password);
+        const userFound = await userModel.findOne({ where:{username: username} });
 
         if(!userFound) return res.status(400).json({message:"User not found"});
 
         const isMatch = await bcrypt.compare(password, userFound.password);
-        console.log(userFound.password);
-        console.log(isMatch);
+
 
         if(!isMatch) return res.status(400).json({message:"Invalid Credentials"});
         
          const token = await AccessToken({id: userFound.id, 
-                       username: userFound.username,
+                       username: userFound.username, isActive: userFound.isactive,
         });
 
     
     res.cookie('token', token)
     res.json({
-        message: "Welcome!",
-        user: userFound
-    })
+        message: `"Welcome BACK! ${userFound.username}"`,
+        id: userFound.id,
+    username: userFound.username,
+    isActive: userFound.isactive
+  })
     } catch (error) { 
         res.status(500).json({
             Error: error.message

@@ -1,4 +1,5 @@
 import {Router} from 'express';
+import { authRequired } from '../middlewares/validateToken.js'
 
 import {
     createClients,
@@ -10,7 +11,7 @@ import {
 
 const router = Router();
 
-router.get('/api/clients', getClients);
+router.get('/api/clients',getClients);
 router.get('/api/clients/:id',getClient);
 router.post('/api/addclient', createClients);
 router.put('/api/clients/:id', updateClient);
