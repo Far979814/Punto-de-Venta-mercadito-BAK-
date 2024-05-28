@@ -8,8 +8,8 @@ addUser,
 
 const router = Router();
 
-router.get('/api/users', getUsers);
-router.get('/api/user/:id',getUser);
-router.post('/api/addUser',addUser);
+router.get('/users', getUsers);
+router.get('/user/:id',getUser);
+router.post('/addUser',addUser);
 
 export default router;

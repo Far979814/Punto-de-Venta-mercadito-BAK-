@@ -12,10 +12,10 @@ import { validate } from '../middlewares/validateClient.js';
 
 const router = Router();
 
-router.get('/api/clients',getClients);
-router.get('/api/clients/:id',getClient);
-router.post('/api/addclient', validate, createClients);
-router.put('/api/clients/:id', updateClient);
-router.delete('/api/deleteClient/:id', deleteClient);
+router.get('/clients',getClients);
+router.get('/clients/:id',getClient);
+router.post('/addclient', validate, createClients);
+router.put('/clients/:id', updateClient);
+router.delete('deleteClient/:id', deleteClient);
 
 export default router;

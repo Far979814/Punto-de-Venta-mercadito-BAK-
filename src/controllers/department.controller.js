@@ -11,3 +11,14 @@ export const getDepartments = async(req, res) => {
     }
 
 }
+
+export const addDepartment = async(req, res) =>{
+    try {
+        const department = new departmentModel(req.body);
+        await department.save();
+        res.status(200).json({message:`Department ${department.type} saved successfully`});
+    }
+    catch (error) {
+        return res.status(500).json({message:error.message, ErrorDescription:error.parent.sqlMessage});
+    } 
+} 

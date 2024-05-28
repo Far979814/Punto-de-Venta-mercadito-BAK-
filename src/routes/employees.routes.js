@@ -4,7 +4,7 @@ import { getEmployees, addEmployee } from "../controllers/employee.controller.js
 
 const router = Router();
 
-router.get('/api/employees', getEmployees);
-router.post('/api/addEmployee',addEmployee );
+router.get('/employees', getEmployees);
+router.post('/addEmployee',addEmployee );
 
 export default router;

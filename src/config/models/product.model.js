@@ -7,7 +7,7 @@ import db from "../db.js";
 export const productModel = db.define('product', {
     code: {
         type: DataTypes.STRING,
-        primaryKey: true,
+        unique:true,
         allowNull: false,
     },
     supplier_id: {
@@ -15,17 +15,17 @@ export const productModel = db.define('product', {
         allowNull: false,
         references: {
             model: supplierModel,
-            key: 'rtn'
+            key: 'id'
                      }
     },
     date_of_sale: {
         type: DataTypes.DATE,
-        allowNull:false,
+        allowNull:true,
     },
     
     description: {
         type: DataTypes.STRING,
-        allowNull:true,
+        allowNull:false,
     },
     product_name: {
         type: DataTypes.STRING,
@@ -33,11 +33,11 @@ export const productModel = db.define('product', {
     },
     brand: {
         type: DataTypes.STRING,
-        allowNull:true,
+        allowNull:false,
     },
     stock: {
         type: DataTypes.INTEGER,
-        allowNull:true,
+        allowNull:false,
     }
 },
 {

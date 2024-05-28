@@ -4,16 +4,16 @@ import db from "../db.js";
 export const supplierModel = db.define('supplier', {
     rtn: {
         type: DataTypes.STRING,
-        primaryKey: true,
+        unique: true,
         allowNull: false,
     },
     route_code: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
     },
     description: {
         type: DataTypes.STRING,
-        allowNull:true,
+        allowNull:false,
     },
     phone: {
         type: DataTypes.STRING,
@@ -21,7 +21,7 @@ export const supplierModel = db.define('supplier', {
     },
     supplier_name: {
         type: DataTypes.STRING,
-        allowNull:true,
+        allowNull:false,
     },
     direction: {
         type: DataTypes.STRING,

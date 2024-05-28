@@ -12,7 +12,7 @@ export const getProducts = async( res ) =>{
 }
 
 export const addProduct = async( req, res) => {
-    const { code, supplier_id, date_of_sale, description, product_name, brand } = req.body;
+    const { code, supplier_id, date_of_sale, description, product_name, brand, stock } = req.body;
     try {
       const newProduct = await productModel.create({
         code,
@@ -20,11 +20,11 @@ export const addProduct = async( req, res) => {
         date_of_sale,
         description, 
         product_name,
-        brand 
+        brand,
+        stock
       })
       res.status(200).json({productoCreado: newProduct});
     } catch (error) {
-        const { sqlMessage } = error.parent
-        res.status(500).json({error: sqlMessage});
+        res.status(500).json({error: error.message});
     }
 }

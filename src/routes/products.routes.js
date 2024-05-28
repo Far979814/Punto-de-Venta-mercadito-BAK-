@@ -9,7 +9,7 @@ import { validateProducts } from '../middlewares/validateProducts.js';
 
 const router = Router();
 
-router.get('/api/products',getProducts);
-router.post('/api/addproduct', validateProducts, addProduct);
+router.get('/products',getProducts);
+router.post('/addproduct', validateProducts, addProduct);
 
 export default router;

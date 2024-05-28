@@ -21,3 +21,16 @@ export const getInvoice = async(req, res) =>{
         res.status(400).json({error:error.message});
     }
 }
+
+export const extInvoice = async(req, res) => {
+    try {
+        const invoice = new invoiceModel(req.body);
+
+        console.log(invoice.dataValues);
+        if(!invoice) return res.status(400).json({message:'Error creating invoice'});
+        await invoice.save();
+        res.status(200).json({message: 'Invoice Saved Succesfully'});
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+}

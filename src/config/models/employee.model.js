@@ -11,7 +11,6 @@ export const employeeModel = db.define('employee', {
      },
     first_name: {
         type: DataTypes.STRING,
-        primaryKey: true,
         allowNull: false,
     },
     last_name: {
@@ -20,7 +19,7 @@ export const employeeModel = db.define('employee', {
     },
     date_of_birth: {
         type: DataTypes.DATE,
-        allowNull:true,
+        allowNull:false,
     },
     department: {
         type: DataTypes.INTEGER,
