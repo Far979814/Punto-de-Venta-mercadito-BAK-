@@ -26,6 +26,32 @@ export const getClient = async(req, res) =>{ //Obtener los clientes de la base.
 
 }
 
+// export const ifExist = async( dni ) =>{
+//    const client = await clientModel.findOne({where:{
+//         dni: dni
+//     }});
+//     console.log(client.dataValues);
+//     client === null ? false:true
+// }
+
+// export const saveClient = async( client ) =>{
+//     const clientExist = await clientModel.findOne({where:{
+//         dni: client.dni
+//     }});
+//    if(clientExist !== null) {
+//     return console.log('Cliente ya existe');
+//    }
+//     try {
+//         const newClient = new clientModel(client);
+//         await newClient.save();
+//         console.log('Cliente Guardado exitosamente');
+//     } catch (error) {
+//         console.log(error.message);
+//     }
+// }
+
+
+
 export const createClients = async( req, res ) => {
     try {
         const client = new clientModel(req.body);

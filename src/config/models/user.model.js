@@ -12,6 +12,15 @@ export const userModel = db.define('user', {
         type: DataTypes.STRING
     },
     isactive: {
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        allowNull:true
+    },
+    role: {
+        type: DataTypes.STRING,
+        allowNull:false
+    },
+    employee_dni: {
+        type: DataTypes.STRING,
+        allowNull:false
     },
 });
