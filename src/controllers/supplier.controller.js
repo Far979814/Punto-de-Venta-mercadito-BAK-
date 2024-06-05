@@ -15,10 +15,10 @@ export const addSupplier = async (req, res) => {
     try {
         const newSupplier = new supplierModel(req.body);
         await newSupplier.save();
-
-
         res.status(200).json({message:`Supplier ${newSupplier.supplier_name} saved successfully`});
     } catch (error) {
+    
+
         res.status(500).json({message:error.message, errorDescription: error.parent.sqlMessage});
     }
 }

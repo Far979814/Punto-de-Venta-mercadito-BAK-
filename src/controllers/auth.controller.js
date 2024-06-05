@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { AccessToken } from "../lib/jwt.js";
 
 export const register = async (req, res) => {
-  const { email , username , password , role , dni  } = req.body;
+  const { email , username , password , role , employee_dni  } = req.body;
   try {
     const hashPassword = await bcrypt.hash(password, 10);
     const newUser = new userModel({
@@ -12,12 +12,12 @@ export const register = async (req, res) => {
       username,
       password: hashPassword,
       role: role,
-      employee_dni: dni
+      employee_dni: employee_dni
     });
 
     await newUser.save();
 
-    const userData = await employeeModel.findOne( {where: { dni: dni }}) 
+    const userData = await employeeModel.findOne( {where: { dni: employee_dni }}) 
 
     const {first_name, last_name} = userData;
     console.log(userData);
@@ -34,8 +34,10 @@ export const register = async (req, res) => {
       message: "User created successfully",
     });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       Error: error.message,
+      ErrorSql: error.parent.sqlMessage //ERROO DE VALIDACION EL USUARIO YA ESTA CREADOO
     });
   }
 };

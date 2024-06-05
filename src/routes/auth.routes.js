@@ -4,9 +4,11 @@ import {logOut, login, profile, register} from '../controllers/auth.controller.j
 
 import { authRequired } from '../middlewares/validateToken.js';
 
+import { validateUser } from '../middlewares/validateUser.js';
+
 const router = Router()
 
-router.post('/register', register);
+router.post('/register', validateUser, register);
 router.post('/login', login);
 router.post('/logout', logOut);
 router.get('/profile', authRequired, profile);
