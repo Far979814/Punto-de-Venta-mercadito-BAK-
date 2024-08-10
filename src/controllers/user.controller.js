@@ -4,6 +4,7 @@ export const getUsers = async(req, res) =>{
     try{
         const users = await userModel.findAll();
         res.json(users)
+        console.log(users);
     }catch (error){
         res.status(500).json({
             Error: error.message,

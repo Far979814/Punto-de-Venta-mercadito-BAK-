@@ -17,8 +17,7 @@ export const addEmployee = async(req, res) => {
       res.status(200).json({message:'Employeer saved Successfully', 
            id: employee.id,
            name: `${employee.first_name} ${employee.last_name}`,
-           department: `${employee.department}`,
-           role: employee.role
+           department: `${employee.department}`
       });
     } catch (error) {
         let sqlMessage = 'Unknown error';

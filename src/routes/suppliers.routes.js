@@ -5,13 +5,9 @@ import {
     getSuppliers
 } from '../controllers/supplier.controller.js'
 
-import { validateSupplier } from '../middlewares/validateSupplier.js';
-
-
-
 const router = Router();
 
 router.get('/suppliers', getSuppliers);
-router.post('/newsupplier', validateSupplier, addSupplier);
+router.post('/newsupplier', addSupplier);
 
 export default router;
