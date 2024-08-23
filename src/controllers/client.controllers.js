@@ -23,7 +23,6 @@ export const getClient = async(req, res) =>{ //Obtener los clientes de la base.
             Error: error.message
         });
     }
-
 }
 
 // export const ifExist = async( dni ) =>{

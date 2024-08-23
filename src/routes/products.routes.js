@@ -2,7 +2,9 @@ import { Router}  from 'express';
 
 import {
     addProduct,
-    getProducts
+    getProduct,
+    getProducts,
+    restoreProduct
 } from '../controllers/product.controller.js'
 
 import { validateProducts } from '../middlewares/validateProducts.js';
@@ -10,6 +12,8 @@ import { validateProducts } from '../middlewares/validateProducts.js';
 const router = Router();
 
 router.get('/products',getProducts);
+router.get('/product',getProduct);
+router.get('/restoreproduct',restoreProduct);
 router.post('/addproduct', validateProducts, addProduct);
 
 export default router;
