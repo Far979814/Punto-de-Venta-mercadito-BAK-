@@ -1,14 +1,15 @@
 import { productModel } from "../config/models/product.model.js";
 
-export const getProducts = async (res) => {
-  try {
+export const getProducts = async (req, res) => {
+  try{
     const products = await productModel.findAll();
+    if(!products) return res.status(401).json({Message: 'Products not found'});
     res.json(products);
-  } catch (error) {
+}catch (error){
     res.status(500).json({
-      Error: error.message,
+        Error: error.message
     });
-  }
+}
 };
 
 export const getProduct = async (req, res) => {
