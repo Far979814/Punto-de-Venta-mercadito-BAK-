@@ -1,14 +1,11 @@
-  // import { productModelToDb } from "../container/mapper.product.js";
+import productSchema from "../schemas/product.schema.js";
 
 export const validateProducts = (req, res, next) =>{
-
-  //TODO: Agregar schema de validacion como middleware. Con un modulo.
-    const {code, supplier_id  , description , product_name , brand,} = productModelToDb(req.body)
-    if(code === "" || supplier_id === ""  || description === "" || product_name === "" || brand === "") {
-      return res.status(400).json({ error : "Empty fields found" });
-    }
+    const { error } = productSchema.validate(req.body); 
+    if(error) return res.status(400).json({error: error.details[0].message});
     next();
 }
+
 
 
 
